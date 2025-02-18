@@ -55,13 +55,14 @@ abstract class AppStyles {
 
 
 
-  static TextStyle styleSemiBold24(BuildContext context) {
+  static TextStyle styleBold25(BuildContext context) {
     return TextStyle(
         fontSize: getResponsiveFontSize(context,
-            fontSize: isArabic(context) ? 22 : 24),
-        fontWeight: FontWeight.w600,
-        fontFamily: AppConstants.montserratFont,
-        color: AppColors.offBlackColor);
+            fontSize: isArabic(context) ? 23 : 25),
+        fontWeight: FontWeight.w700,
+        fontFamily: AppConstants.interFont,
+        color: AppColors.firstColor
+    );
   }
 
   static TextStyle styleLight20(BuildContext context) {
@@ -159,7 +160,7 @@ abstract class AppStyles {
         fontSize: getResponsiveFontSize(context,
             fontSize: isArabic(context) ? 15 : 16),
         fontWeight: FontWeight.w400,
-        fontFamily: AppConstants.manropeFont,
+        fontFamily: AppConstants.poppinsFont,
         color: AppColors.offBlackColor);
   }
 

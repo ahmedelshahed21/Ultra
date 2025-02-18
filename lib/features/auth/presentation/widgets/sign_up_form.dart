@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ultra_app/core/functions/navigation.dart';
+import 'package:ultra_app/core/routes/app_router.dart';
 import 'package:ultra_app/core/widgets/custom_buttons.dart';
 import 'package:ultra_app/core/widgets/custom_text_form_field.dart';
 import 'package:ultra_app/core/widgets/spacing.dart';
@@ -31,7 +33,7 @@ class SignUpForm extends StatelessWidget {
         DefaultButton(
             text: 'Sign Up',
             onPressed: (){
-
+              customPush(context, AppRouter.otpVerificationView);
             }),
       ],
     );

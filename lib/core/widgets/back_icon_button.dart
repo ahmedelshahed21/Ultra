@@ -15,9 +15,8 @@ class BackIconButton extends StatelessWidget {
         Navigator.of(context).pop();
       },
       color: iconColor ?? AppColors.firstColor,
-      iconSize: 32,
       icon: Icon(
-        Icons.arrow_back,
+        Icons.arrow_back_ios,
       ),
     );
   }
