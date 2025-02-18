@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ultra_app/core/constants/app_colors.dart';
 import 'package:ultra_app/core/functions/navigation.dart';
 import 'package:ultra_app/core/routes/app_router.dart';
 import 'package:ultra_app/core/widgets/custom_buttons.dart';
@@ -32,6 +33,7 @@ class SignUpForm extends StatelessWidget {
         VerticalSpace(16),
         DefaultButton(
             text: 'Sign Up',
+            shadowColor: AppColors.pureBlackColor,
             onPressed: (){
               customPush(context, AppRouter.otpVerificationView);
             }),

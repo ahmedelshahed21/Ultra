@@ -1,15 +1,15 @@
 import 'package:ultra_app/core/constants/app_colors.dart';
 import 'package:ultra_app/core/constants/app_styles.dart';
-import 'package:ultra_app/core/functions/is_arabic.dart';
 import 'package:flutter/material.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton(
-      {super.key, this.text, required this.onPressed, this.child});
+      {super.key, this.text, required this.onPressed, this.child, this.shadowColor});
 
   final String? text;
   final Widget? child;
   final void Function() onPressed;
+  final Color? shadowColor;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class DefaultButton extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width*0.5,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            shadowColor: AppColors.pureBlackColor,
+            shadowColor: shadowColor,
               elevation: 8,
               backgroundColor: AppColors.firstColor,
               shape: RoundedRectangleBorder(
@@ -28,15 +28,50 @@ class DefaultButton extends StatelessWidget {
                 Text(
                   text ?? '',
                   style: AppStyles.styleRegular20(context).copyWith(
-
                     color: AppColors.pureWhiteColor,
-                    // letterSpacing: isArabic(context) ? 0 : 4
                   ),
                 ),
           )),
     );
   }
 }
+
+
+
+
+class NextButton extends StatelessWidget {
+  const NextButton(
+      {super.key, this.text, required this.onPressed, this.child});
+
+  final String? text;
+  final Widget? child;
+  final void Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 54,
+      width: MediaQuery.sizeOf(context).width - 60,
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.firstColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8))),
+          onPressed: onPressed,
+          child: child ??
+              Text(
+                text ?? '',
+                style: AppStyles.styleRegular20(context).copyWith(
+                  color: AppColors.pureWhiteColor,
+                ),
+              )),
+    );
+  }
+}
+
+
+
+
 
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton(
@@ -68,40 +103,9 @@ class GetStartedButton extends StatelessWidget {
               child: child ??
                   Text(
                     text ?? '',
-                    style: AppStyles.styleMedium18(context)
+                    style: AppStyles.styleRegular20(context)
                         .copyWith(color: AppColors.pureWhiteColor),
                   ),
             )));
-  }
-}
-
-class AddToCartButton extends StatelessWidget {
-  const AddToCartButton(
-      {super.key, this.text, required this.onPressed, this.child});
-
-  final String? text;
-  final Widget? child;
-  final void Function() onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 48,
-      width: MediaQuery.sizeOf(context).width - 60,
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green.shade900,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12))),
-          onPressed: onPressed,
-          child: child ??
-              Text(
-                text ?? '',
-                style: AppStyles.styleRegular20(context).copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.pureWhiteColor,
-                    letterSpacing: isArabic(context) ? 1 : 2),
-              )),
-    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ultra_app/core/constants/app_colors.dart';
 import 'package:ultra_app/core/widgets/custom_buttons.dart';
 import 'package:ultra_app/core/widgets/custom_text_form_field.dart';
 import 'package:ultra_app/core/widgets/spacing.dart';
@@ -23,6 +24,7 @@ class SignInForm extends StatelessWidget {
         VerticalSpace(16),
         DefaultButton(
             text: 'Sign In',
+            shadowColor: AppColors.pureBlackColor,
             onPressed: (){
 
             }),

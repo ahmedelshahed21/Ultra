@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:ultra_app/core/constants/app_colors.dart';
 import 'package:ultra_app/core/constants/app_styles.dart';
+import 'package:ultra_app/core/functions/navigation.dart';
+import 'package:ultra_app/core/routes/app_router.dart';
 import 'dart:async';
-
 import 'package:ultra_app/core/widgets/back_icon_button.dart';
 import 'package:ultra_app/core/widgets/spacing.dart';
+
 
 class OTPVerificationView extends StatefulWidget {
   const OTPVerificationView({super.key});
@@ -68,12 +70,13 @@ class _OTPVerificationViewState extends State<OTPVerificationView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Spacer(flex: 2,),
             Text(
-              "A code has been sent to\n+39 234 556 7988 via SMS",
+              "A code has been sent to \n +39 234 556 7988 via SMS",
               textAlign: TextAlign.center,
               style: AppStyles.styleRegular16(context).copyWith(color:AppColors.greyColor ),
             ),
-            VerticalSpace(24),
+            Spacer(),
             PinCodeTextField(
               appContext: context,
               length: 4,
@@ -91,18 +94,37 @@ class _OTPVerificationViewState extends State<OTPVerificationView> {
                 selectedColor: Colors.orange,
               ),
               onChanged: (value) {},
+              onCompleted: (value) {
+                if (value.length == 4) {
+                  customPushReplacement(context, AppRouter.verificationSuccessView);
+                }
+              },
+
             ),
-            SizedBox(height: 16),
-            TextButton(
-              onPressed: _isResendEnabled ? _startTimer : null,
-              child: Text(
-                _isResendEnabled ? "Resend code" : "Resend code (${_counter}s)",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: _isResendEnabled ? Colors.orange : Colors.black38,
-                ),
+            VerticalSpace(16),
+            InkWell(
+              onTap: _isResendEnabled ? _startTimer : null,
+              child: Column(
+                children: [
+                  Text(
+                    _isResendEnabled ? "Resend code" : "Resend code (${_counter}s)",
+                    style: AppStyles.styleRegular16(context).copyWith(
+                      color: AppColors.greyColor,
+                      // decoration: TextDecoration.underline,
+                      // decorationColor: AppColors.greyColor,
+                    ),
+                  ),
+                  Container(
+                    width:_isResendEnabled ? 100:150,
+                    height: 1,
+                    decoration: BoxDecoration(
+                      color: AppColors.greyColor,
+                    ),
+                  )
+                ],
               ),
             ),
+            Spacer(flex: 2),
           ],
         ),
       ),
