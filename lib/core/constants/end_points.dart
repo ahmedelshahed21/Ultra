@@ -1,13 +1,13 @@
 class EndPoints {
   static const String baserUrl = "https://df5a-45-241-135-9.ngrok-free.app/api";
-  static const String categories = "/Categories";
-  static const String allergies='/Allergies/allergys';
-  static const String products = "/products";
-  static const String createOrUpdateCart = "/cart";
-  static const String deleteCart = "/cart";
-  static const String getCart = "/Cart/";
-  static const String login='/Account/login';
-  static const String register='/Account/Register';
+  // static const String categories = "/Categories";
+  // static const String allergies='/Allergies/allergys';
+  // static const String products = "/products";
+  // static const String createOrUpdateCart = "/cart";
+  // static const String deleteCart = "/cart";
+  // static const String getCart = "/Cart/";
+  static const String signIn='/login';
+  static const String signUp='/register';
   static const String verifyRegister='/Account/VerifyRegister';
   static const String forgetPassword='/Account/forget-password';
   static const String forgotPasswordVerifyOtp='/Account/forget-password/verify-otp';
