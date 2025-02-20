@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ultra_app/core/constants/app_colors.dart';
 import 'package:ultra_app/core/constants/app_constants.dart';
 import 'package:ultra_app/core/constants/app_styles.dart';
+import 'package:ultra_app/core/routes/app_router.dart';
 import 'package:ultra_app/core/widgets/custom_buttons.dart';
 import 'package:ultra_app/core/widgets/spacing.dart';
 
@@ -12,7 +14,7 @@ class VerificationSuccessView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.pureWhiteColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,7 +37,7 @@ class VerificationSuccessView extends StatelessWidget {
          NextButton(
            text: 'Next',
              onPressed: (){
-
+             GoRouter.of(context).go(AppRouter.userLocationDetectionView);
              }
          ),
           const Spacer(),
