@@ -17,14 +17,17 @@ class SignUpForm extends StatelessWidget {
       children: [
         DecoratedTextFormField(
           hintText: 'Name',
+          type: TextInputType.name,
         ),
         VerticalSpace(12),
         DecoratedTextFormField(
           hintText: 'Phone Number',
+          type: TextInputType.phone,
         ),
         VerticalSpace(12),
         DecoratedTextFormField(
           hintText: 'Email',
+          type: TextInputType.emailAddress,
         ),
         VerticalSpace(12),
         DecoratedTextFormField(

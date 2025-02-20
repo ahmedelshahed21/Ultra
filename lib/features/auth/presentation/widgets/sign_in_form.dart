@@ -6,29 +6,38 @@ import 'package:ultra_app/core/widgets/spacing.dart';
 
 
 class SignInForm extends StatelessWidget {
-  const SignInForm({
+  SignInForm({
     super.key,
   });
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DecoratedTextFormField(
-          hintText: 'Phone Number',
-        ),
-        VerticalSpace(12),
-        DecoratedTextFormField(
-          hintText: 'Password',
-        ),
-        VerticalSpace(16),
-        DefaultButton(
-            text: 'Sign In',
-            shadowColor: AppColors.pureBlackColor,
-            onPressed: (){
+    return Form(
+      child: Column(
+        children: [
+          DecoratedTextFormField(
+            hintText: 'Phone Number',
+            type: TextInputType.phone,
+            controller: phoneController,
+          ),
+          VerticalSpace(12),
+          DecoratedTextFormField(
+            hintText: 'Password',
+            controller: passwordController,
+          ),
+          VerticalSpace(16),
+          DefaultButton(
+              text: 'Sign In',
+              shadowColor: AppColors.pureBlackColor,
+              onPressed: (){
 
-            }),
-      ],
+              }),
+        ],
+      ),
     );
   }
 }
