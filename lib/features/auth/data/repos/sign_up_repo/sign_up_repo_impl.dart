@@ -23,10 +23,10 @@ class SignUpRepoImpl implements SignUpRepo {
     try {
       final formData = FormData.fromMap({
         'full_name': fullName,
-        'phone': phone,
-        'phone_code': phoneCode,
         'email': email,
         'password': password,
+        'phone': phone,
+        'phone_code': phoneCode,
         'type': userType,
       });
 
